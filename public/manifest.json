@@ -1,9 +1,9 @@
 {
- "name": "App",
  
     "theme_color" : "#1976d2",
     "background_color" : "#ffffff",
-    "display" : "minimal-ui",
+    "display" : "standalone",
+    "scope": "3000",
     "start_url": ".",
     "name" : "mono_luck",
     "short_name" : "mono_luck",

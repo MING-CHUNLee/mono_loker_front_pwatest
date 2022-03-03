@@ -31,5 +31,14 @@ const App = () => {
     </Router>
   );
 };
-
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/serviceWorker.js') // 註冊 Service Worker
+    .then(function(reg) {
+      console.log('Registration succeeded. Scope is ' + reg.scope); // 註冊成功
+    })
+    .catch(function(error) {
+      console.log('Registration failed with ' + error); // 註冊失敗
+    });
+}
 export default App;

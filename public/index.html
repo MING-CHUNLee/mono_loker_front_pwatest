@@ -68,30 +68,16 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-      if ('serviceWorker' in navigator) {
-        //註冊與下載
-        navigator.serviceWorker
-          .register('/serviceWorker.js') // 註冊 Service Worker
-          .then(function(reg) {
-            console.log('Registration succeeded. Scope is ' + reg.scope); // 註冊成功
-          })
-          .catch(function(error) {
-            console.log('Registration failed with ' + error); // 註冊失敗
-          });
-          //安裝
-          this.addEventListener('install', function(event) {
-            event.waitUntil(
-              caches.open('v1').then(function(cache) {
-                return cache.addAll(['/javascripts/service_workers_test/hello.js']);
-              }),
-            );
-          });
-        //啟動
-          this.addEventListener('activate', function(event) {
-            console.log('activated!');
-          });
-
-      }
+     if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('./serviceWorker.js') // 註冊 Service Worker
+    .then(function(reg) {
+      console.log('Registration succeeded. Scope is ' + reg.scope); // 註冊成功
+    })
+    .catch(function(error) {
+      console.log('Registration failed with ' + error); // 註冊失敗
+    });
+}
   </script>
   </body>
 </html>

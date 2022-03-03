@@ -7,6 +7,7 @@
  * @FilePath: \lockmono\sw.js
  */
 // install
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
     .register('/serviceWorker.js') // 註冊 Service Worker
@@ -17,11 +18,10 @@ if ('serviceWorker' in navigator) {
       console.log('Registration failed with ' + error); // 註冊失敗
     });
 }
-
 this.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('v1').then(function(cache) {
-      return cache.addAll(['/javascripts/service_workers_test/hello.js']);
+      return cache.addAll(['../src/*.*']);
     }),
   );
 });
